@@ -44,8 +44,8 @@
 .btn-outline-success:active,
 .btn-outline-success.minha-cor:focus
     {
-    background-color: rgb(249, 213, 255);
-    border-color: rgb(249, 213, 255);
+    background-color: rgb(249, 213, 255) !important;
+    border-color: rgb(249, 213, 255) !important;
     color: black;
 }
 
@@ -74,7 +74,38 @@
 
 .carousel-caption {
     position: absolute;
-    bottom: 25%;
+    bottom: 35%;
     text-align: center;
   }
+
+
+.col{
+    margin-top: 3rem;
+}
+
+.post-container {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(119, 25, 114, 0.232);
+    
+  }
   
+  .post-container h1 {
+    font-weight: bold;
+    color: rgb(117, 51, 113);
+  }
+  
+  .post-container p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  .footertitle{
+    font-weight: bold;
+    font-family: 'Playfair Display';
+    color: rgb(117, 51, 113);
+    margin-top: 1rem;
+  }
