@@ -1,0 +1,44 @@
+.navbar-brand{
+    margin-left: 4rem;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Playfair Display';
+    font-style: italic;
+}
+
+.btn-outline-success{
+    margin-right: 4rem;
+}
+
+.navbar-expand-lg{
+    height: 8rem;
+    background: linear-gradient(to right, rgb(255, 210, 253), rgb(255, 150, 250));
+}
+
+.navbar-collapse{
+    margin-left: 3rem;
+}
+
+.minha-cor{
+    color: white;
+    border-color: white;
+    
+}
+
+.btn-outline-success:hover{
+    background-color: white;
+    border-color: white;
+    color: black;
+}
+
+.btn-outline-success:active,
+.btn-outline-success.minha-cor:focus
+    {
+    background-color: rgb(249, 213, 255);
+    border-color: rgb(249, 213, 255);
+    color: black;
+}
+
+.nav-link{
+    margin-right: 1rem;
+}
