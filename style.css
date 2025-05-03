@@ -109,3 +109,18 @@
     color: rgb(117, 51, 113);
     margin-top: 1rem;
   }
+
+  .h-100{
+    box-shadow: 0 4px 10px rgba(119, 25, 114, 0.232);
+  }
+
+  .btn-outline-secondary:hover{
+    background-color: rgb(255, 150, 250);
+    border-color: rgb(255, 150, 250);
+  }
+
+  .btn-outline-secondary:active{
+    background-color: rgb(255, 150, 250);
+    border-color: rgb(255, 150, 250);
+    background:rgb(255, 150, 250);
+  }
