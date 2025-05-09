@@ -3,7 +3,6 @@
     font-size: 2rem;
     font-weight: bold;
     font-family: 'Playfair Display';
-    font-style: italic;
     color: rgb(117, 51, 113);
 }
 
@@ -18,7 +17,7 @@
 
 .navbar-expand-lg{
     height: 8rem;
-    background: linear-gradient(to right, rgb(253, 215, 251), rgb(255, 150, 250));
+    background: linear-gradient(to right, rgb(253, 215, 251), rgb(255, 146, 250));
 }
 
 .navbar-collapse{
