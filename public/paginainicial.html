@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>M's Blog</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">M's Blog</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Criar post</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Notificações</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Pesquise perfis, posts..." aria-label="Search" />
+          <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="imagens/studying.jpeg" class="d-block w-100 carousel-img" alt="Slide 1" />
+        <div class="carousel-caption">
+          <h1 style="font-family: 'Playfair Display'; font-weight: bold; color: rgb(249, 213, 255)">
+            Compartilhe suas ideias, inspire o mundo.
+          </h1>
+          <p>Onde cada post é um novo começo.</p>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="imagens/newyork.jpeg" class="d-block w-100 carousel-img" alt="Slide 2" />
+        <div class="carousel-caption">
+          <h1 style="font-family: 'Playfair Display'; font-weight: bold; color: rgb(249, 213, 255)">
+            Conecte, escreva, transforme.
+          </h1>
+          <p>Blogar é criar pontes com o coração.</p>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="imagens/girl.jpeg" class="d-block w-100 carousel-img" alt="Slide 3" />
+        <div class="carousel-caption">
+          <h1 style="font-family: 'Playfair Display'; font-weight: bold; color: rgb(249, 213, 255)">
+            Sua visão merece ser vista.
+          </h1>
+          <p>Conte experiências através das suas palavras.</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="container mt-5 mb-5">
+    <div id="postagens" class="row row-cols-1 row-cols-md-3 g-4"></div>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+      <div class="col">
+        <div class="card h-100">
+          <img src="imagens/codes.jpg" class="card-img-top" alt="Post 1" />
+          <div class="card-body">
+            <h5 class="card-title">Desvendando o Universo da Programação</h5>
+            <p class="card-text">
+              Como comecei a programar e dicas pra você dar os primeiros passos no código. Clique para ler mais.
+            </p>
+            <a href="postagem.html" class="btn btn-light">Ler mais</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100">
+          <img src="imagens/earth.jpg" class="card-img-top" alt="Post 1" />
+          <div class="card-body">
+            <h5 class="card-title">O nosso Lugar no Universo</h5>
+            <p class="card-text">
+              Uma imagem da Terra vista do espaço e reflexões sobre nosso papel no mundo. Clique para ler mais.
+            </p>
+            <a href=" " class="btn btn-light">Ler mais</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100">
+          <img src="imagens/studies.jpg" class="card-img-top" alt="Post 1" />
+          <div class="card-body">
+            <h5 class="card-title">Livros que Mudaram Meu Jeito de Pensar</h5>
+            <p class="card-text">
+              Indicações de leituras que transformaram minhas ideias e inspirações. Clique para ler mais.
+            </p>
+            <a href=" " class="btn btn-light">Ler mais</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col" style="margin-bottom: 4rem;">
+        <div class="card h-100">
+          <img src="imagens/notebooks.jpg" class="card-img-top" alt="Post 1" />
+          <div class="card-body">
+            <h5 class="card-title">Organização Criativa</h5>
+            <p class="card-text">
+              Como uso cadernos e tecnologia pra estudar e criar com mais foco. Clique para ler mais.
+            </p>
+            <a href=" " class="btn btn-light">Ler mais</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col" style="margin-bottom: 4rem;">
+        <div class="card h-100">
+          <img src="imagens/travel.jpg" class="card-img-top" alt="Post 1" />
+          <div class="card-body">
+            <h5 class="card-title">Diário de Bordo: Aprendizados de Uma Nova Jornada</h5>
+            <p class="card-text">
+              O que aprendi viajando sozinha(o) e saindo da minha zona de conforto. Clique para ler mais.
+            </p>
+            <a href=" " class="btn btn-light">Ler mais</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col" style="margin-bottom: 4rem;">
+        <div class="card h-100">
+          <img src="imagens/dog.jpg" class="card-img-top" alt="Post 1" />
+          <div class="card-body">
+            <h5 class="card-title">O Desafio de Manter o Foco em Casa</h5>
+            <p class="card-text">
+              Rotina, foco e como me adaptei aos estudos em casa. Clique para ler mais.
+            </p>
+            <a href=" " class="btn btn-light">Ler mais</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="bg-body-tertiary text-center text-lg-start" style="background: linear-gradient(to right, rgb(253, 215, 251), rgb(255, 150, 250));">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+      <h5 class="footertitle">M's Blog © 2025 Copyright</h5>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>

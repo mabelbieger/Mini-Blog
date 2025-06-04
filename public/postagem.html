@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Postagem - M's Blog</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">M's Blog</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Criar post</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Notificações</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mt-5">
+    <div id="loading" class="text-center">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Carregando...</span>
+      </div>
+      <p class="mt-2">Carregando postagem...</p>
+    </div>
+
+    <div id="postagem-container" style="display: none;">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <button onclick="history.back()" class="btn btn-outline-secondary mb-4">
+            ← Voltar
+          </button>
+
+          <article class="card">
+            <img id="postagem-imagem" src="" class="card-img-top" alt="" style="height: 400px; object-fit: cover;">
+            <div class="card-body">
+              <h1 id="postagem-titulo" class="card-title"></h1>
+              <p class="text-muted mb-3">
+                <small>Publicado em <span id="postagem-data"></span></small>
+              </p>
+              <div id="postagem-conteudo" class="card-text"></div>
+            </div>
+          </article>
+
+          <div class="mt-4 text-center">
+            <button class="btn btn-primary" onclick="compartilhar()">
+              Compartilhar postagem
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="erro-container" class="text-center" style="display: none;">
+      <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Ops! Postagem não encontrada</h4>
+        <p>Não foi possível carregar a postagem solicitada.</p>
+        <hr>
+        <a href="index.html" class="btn btn-primary">Voltar ao início</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-body-tertiary text-center text-lg-start mt-5" style="background: linear-gradient(to right, rgb(253, 215, 251), rgb(255, 150, 250));">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+      <h5 class="footertitle">M's Blog © 2025 Copyright</h5>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const postagemId = urlParams.get('id');
+
+      const loading = document.getElementById('loading');
+      const container = document.getElementById('postagem-container');
+      const erroContainer = document.getElementById('erro-container');
+
+      if (!postagemId) {
+        mostrarErro();
+        return;
+      }
+
+      carregarPostagem(postagemId);
+
+      function carregarPostagem(id) {
+        fetch(`https://api-fake-blog.onrender.com/postagem/${id}`)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Postagem não encontrada');
+            }
+            return response.json();
+          })
+          .then(postagem => {
+            console.log('Dados da postagem:', postagem); 
+            exibirPostagem(postagem);
+          })
+          .catch(error => {
+            console.error('Erro ao carregar postagem:', error);
+            mostrarErro();
+          });
+      }
+
+      function exibirPostagem(postagem) {
+        const imagensPersonalizadas = [
+          'imagens/post-1.jpg',
+          'imagens/post-2.jpg', 
+          'imagens/post-3.jpg',
+          'imagens/post-4.jpg',
+          'imagens/post-5.jpg',
+          'imagens/post-6.jpg'
+        ];
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const postagemId = parseInt(urlParams.get('id'));
+        const imagemPersonalizada = imagensPersonalizadas[postagemId] || 'imagens/default.jpg';
+
+        document.title = `${postagem.title} - M's Blog`;
+
+        document.getElementById('postagem-titulo').textContent = postagem.title;
+        document.getElementById('postagem-data').textContent = postagem.postDate;
+        
+        const conteudo = postagem.text || postagem.content || postagem.body || postagem.description || 'Conteúdo não disponível';
+        document.getElementById('postagem-conteudo').innerHTML = conteudo;
+        
+        const imagem = document.getElementById('postagem-imagem');
+        imagem.src = imagemPersonalizada;
+        imagem.alt = postagem.title;
+
+        loading.style.display = 'none';
+        container.style.display = 'block';
+      }
+
+      function mostrarErro() {
+        loading.style.display = 'none';
+        erroContainer.style.display = 'block';
+      }
+
+      window.compartilhar = function() {
+        if (navigator.share) {
+          navigator.share({
+            title: document.getElementById('postagem-titulo').textContent,
+            url: window.location.href
+          });
+        } else {
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('Link copiado para a área de transferência!');
+          });
+        }
+      };
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "mini-blog",
+  "version": "1.0.0",
+  "description": "Mini Blog para a aula de Design Gráfico",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mabelbieger/Mini-Blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mabelbieger/Mini-Blog/issues"
+  },
+  "homepage": "https://github.com/mabelbieger/Mini-Blog#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "node-fetch": "^3.3.2"
+  }
+}
